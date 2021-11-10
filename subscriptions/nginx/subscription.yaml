@@ -1,0 +1,19 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+metadata:
+  namespace: default
+  name: nginx
+  annotations:
+    apps.open-cluster-management.io/git-branch: main
+    apps.open-cluster-management.io/git-path: applications/nginx
+    apps.open-cluster-management.io/reconcile-option: merge
+  labels:
+    app: nginx
+    app.kubernetes.io/part-of: nginx
+    apps.open-cluster-management.io/reconcile-rate: medium
+spec:
+  channel: default/astrokube-examples
+  placement:
+    placementRef:
+      name: nginx
+      kind: PlacementRule

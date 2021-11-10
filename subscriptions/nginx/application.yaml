@@ -1,0 +1,19 @@
+apiVersion: app.k8s.io/v1beta1
+kind: Application
+metadata:
+  namespace: default
+  name: nginx
+  annotations:
+    apps.open-cluster-management.io/deployables: ''
+  selfLink: /apis/app.k8s.io/v1beta1/namespaces/default/applications/nginx
+spec:
+  componentKinds:
+    - group: apps.open-cluster-management.io
+      kind: Subscription
+  descriptor: {}
+  selector:
+    matchExpressions:
+      - key: app
+        operator: In
+        values:
+          - nginx
